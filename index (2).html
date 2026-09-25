@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қарағанды облысының Жастар ресурстық орталығы</title>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0072CE;
+            --secondary: #FFB81C;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --gray: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,114,206,0.9), rgba(15,23,42,0.8)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 1rem;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--secondary);
+            color: var(--dark);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(255, 184, 28, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Director Section */
+        .director-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--primary);
+            position: relative;
+        }
+
+        .director-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .director-info .role {
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .director-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        /* Directions Section */
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .direction-card {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .direction-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .direction-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .direction-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Contact & Instagram */
+        .contact-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .insta-box {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .insta-box i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .insta-btn {
+            background: #fff;
+            color: #dc2743;
+            margin-top: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-users-viewfinder"></i> SARYARQA JASTARY
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Орталық туралы</a></li>
+                <li><a href="#director">Басшылық</a></li>
+                <li><a href="#directions">Бағыттар</a></li>
+                <li><a href="#contacts">Байланыс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Қарағанды облысының Жастар ресурстық орталығы</h1>
+            <p>Жастардың бастамаларын қолдау, дамыту және әлеуметтік маңызды жобаларды жүзеге асыру орталығы</p>
+            <a href="#contacts" class="btn">Байланысу</a>
+        </div>
+    </section>
+
+    <!-- Director Section -->
+    <section id="director" class="container">
+        <h2 class="section-title">Орталық басшылығы</h2>
+        <div class="director-card">
+            <div class="director-info">
+                <h3>Кабегенов Аслан Берікбекұлы</h3>
+                <p class="role">Қарағанды облыстық жастар ресурстық орталығының директоры</p>
+                <div class="director-quote">
+                    <p>«Жастар – еліміздің болашағы мен негізгі қозғаушы күші. Біздің басты мақсатымыз – әрбір жас азаматтың өзін-өзі дамытуына, идеяларын жүзеге асыруына және қоғамға пайдалы болуына толық жағдай жасау.»</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directions Section -->
+    <section id="directions" class="container">
+        <h2 class="section-title">Негізгі бағыттар</h2>
+        <div class="directions-grid">
+            <div class="direction-card">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h3>Волонтерлік қозғалыс</h3>
+                <p>Жастар арасында волонтерлікті дамыту және қайырымдылық жобаларды қолдау.</p>
+            </div>
+            <div class="direction-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Жұмыспен қамту және кәсіптік бағдар</h3>
+                <p>Жастарға жұмыс табуға көмектесу, кеңес беру және түйіндеме дайындауға қолдау білдіру.</p>
+            </div>
+            <div class="direction-card">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>Жастар бастамаларын қолдау</h3>
+                <p>Стартаптар, гранттар және креативті жобаларды іске асыруға бағыттау.</p>
+            </div>
+            <div class="direction-card">
+                <i class="fa-solid fa-gavel"></i>
+                <h3>Құқықтық және психологиялық кеңес</h3>
+                <p>Жастарға тегін құқықтық консультация және психологиялық көмек көрсету.</p>
+            </div>
+            <div class="direction-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Бейформал білім беру</h3>
+                <p>Тренингтер, семинарлар, воркшоптар және көшбасшылық мектептер ұйымдастыру.</p>
+            </div>
+            <div class="direction-card">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Ақпараттық-талдау жұмысы</h3>
+                <p>Жастар саясатының іске асырылуын мониторингілеу және зерттеулер жүргізу.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts & Instagram Section -->
+    <section id="contacts" class="container">
+        <h2 class="section-title">Байланыс ақпараты</h2>
+        <div class="contact-section">
+            <div class="contact-info">
+                <h3>Бекітілген мекенжайымыз</h3>
+                <br>
+                <p><i class="fa-solid fa-location-dot"></i> <strong>Мекенжай:</strong> Қарағанды қ., Тәттімбет, 709</p>
+                <p><i class="fa-solid fa-phone"></i> <strong>Телефон:</strong> +7 (7212) XX-XX-XX</p>
+                <p><i class="fa-solid fa-envelope"></i> <strong>E-mail:</strong> info@saryarqajastary.kz</p>
+                <p><i class="fa-solid fa-clock"></i> <strong>Жұмыс уақыты:</strong> Дүйсенбі - Жұма, 09:00 - 18:30</p>
+            </div>
+            <div class="insta-box">
+                <i class="fa-brands fa-instagram"></i>
+                <h3>Біздің Instagram</h3>
+                <p>Соңғы жаңалықтар мен іс-шаралардан хабардар болу үшін жазылыңыз!</p>
+                <a href="https://instagram.com/saryarqa_jastary" target="_blank" class="btn insta-btn">@saryarqa_jastary</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Қарағанды облысының Жастар ресурстық орталығы. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+</body>
+</html>
